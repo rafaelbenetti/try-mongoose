@@ -9,7 +9,7 @@
 
     mongoose.Promise = bluebird;
     mongoose
-        .connect('mongodb://database:27017', {
+        .connect('mongodb://db:27017', {
             useMongoClient: true
         })
         .then((db) => {
