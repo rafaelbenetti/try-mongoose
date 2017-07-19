@@ -1,0 +1,53 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Devices API",
+		"_postman_id": "15ab4a71-8364-8235-0991-aab0383e26f8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all devices",
+			"request": {
+				"url": "{{URL_BASE}}/devices",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get device by ID",
+			"request": {
+				"url": "{{URL_BASE}}/devices/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create new device",
+			"request": {
+				"url": "{{URL_BASE}}/devices",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_id\": \"b55ee146-217b-4696-b9ef-b61581dad7ef\",\n    \"serialNumber\": \"1234XPTO\",\n    \"deviceId\": \"NDTSTSMID0001-1000\",\n    \"name\": []\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

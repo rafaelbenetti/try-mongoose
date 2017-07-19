@@ -2,10 +2,12 @@
     'use strict';
 
     const express = require('express');    
+    const bodyParser = require('body-parser');    
     const deviceRouter = require('../device/device-router');
-
-    const mongoConnection = require('../infra/mongo/connection');
-    mongoConnection.connect(); 
+    const errorHandler = require('./middleware/error-handler');
+        
+    const databaseManager = require('../config/database-manager');
+    databaseManager.connect(); 
 
     let app = express();
 
@@ -15,8 +17,9 @@
         next();
     }); 
 
-    app.use(bodyParser.json());    
+    app.use(bodyParser.json());        
     app.use('/devices', deviceRouter);
+    app.use(errorHandler);
 
     module.exports = app;
 })();

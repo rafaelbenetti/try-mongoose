@@ -1,21 +1,16 @@
 (function () {
     'use strict';
 
-    const express = require('express');
-    const mongoose = require('mongoose');
-    const bluebird = require('bluebird');
+    const http = require('http');
 
-    let app = express();
+    let app = require('./src/server/config/express');
 
-    mongoose.Promise = bluebird;
-    mongoose
-        .connect('mongodb://db:27017', {
-            useMongoClient: true
-        })
-        .then((db) => {
-            console.log('Connected on database!!');
-        });    
+    let host = {
+        port: 3000
+    };
 
-    app.get('/', (req, res) => res.send("Hello World"));
-    app.listen(3000, () => console.log('Listening on port 3000!'));
+    http.createServer(app)
+        .listen(host.port, () => {
+            console.log(`Node server on port: ${host.port}`);
+        });
 })();
